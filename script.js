@@ -1,10 +1,3 @@
-let barraLife = document.querySelector("#quantia-vida");
-let barraWater = document.querySelector("#quantia-agua");
-let barraDefense = document.querySelector("#quantia-defesa");
-let barraMoney = document.querySelector("#quantia-dinheiro");
-let nomePlayer = document.querySelector("#p1-name");
-
-
 let personagens = [
     ["Roberta", [7, 4, 6, 3]],
     ["Hasan", [10, 10, 10, 10]],
@@ -44,8 +37,10 @@ function rotuloInnerAtributo(tipo, valorAtributo) {
 }
 
 function checaJogadores(person) {
-    for (let i = 0; i < jogadores.lenght; i++) {
-        if (person === jogadores[i]) {
+    let vetorSize = jogadores.length;
+
+    for (let i = 0; i < vetorSize; i++) {
+        if (person[0] == jogadores[i].nome) {
             return 1;
         }
     }
@@ -62,46 +57,31 @@ function escolhePersonagem() {
 
         if (rNumber === 0 || rNumber < 0.2) {
             personagemAtual = personagens[0];
-            if (jogadores.length !== 0 && !checaJogadores(personagemAtual)) {
-                return personagemAtual;
-            }
-            else if (jogadores.length === 0) {
+            if (!checaJogadores(personagemAtual)) {
                 return personagemAtual;
             }
         }
         else if(rNumber >= 0.2 && rNumber < 0.4) {
             personagemAtual = personagens[1];
-            if (jogadores.length !== 0 && !checaJogadores(personagemAtual)) {
-                return personagemAtual;
-            }
-            else if (jogadores.length === 0) {
+            if (!checaJogadores(personagemAtual)) {
                 return personagemAtual;
             }
         }
         else if(rNumber >= 0.4 && rNumber < 0.6) {
             personagemAtual = personagens[2];
-            if (jogadores.length !== 0 && !checaJogadores(personagemAtual)) {
-                return personagemAtual;
-            }
-            else if (jogadores.length === 0) {
+            if (!checaJogadores(personagemAtual)) {
                 return personagemAtual;
             }
         }
         else if(rNumber >= 0.6 && rNumber < 0.8) {
             personagemAtual = personagens[3];
-            if (jogadores.length !== 0 && !checaJogadores(personagemAtual)) {
-                return personagemAtual;
-            }
-            else if (jogadores.length === 0) {
+            if (!checaJogadores(personagemAtual)) {
                 return personagemAtual;
             }
         }
         else if(rNumber >= 0.8 && rNumber < 1) {
             personagemAtual = personagens[4];
-            if (jogadores.length !== 0 && !checaJogadores(personagemAtual)) {
-                return personagemAtual;
-            }
-            else if (jogadores.length === 0) {
+            if (!checaJogadores(personagemAtual)) {
                 return personagemAtual;
             }
         }
@@ -144,3 +124,5 @@ for (let i = 0; i < 5; i++) {
 }
 
 atualizaHTMLJogador(jogadores[0]);
+
+console.log(jogadores);
